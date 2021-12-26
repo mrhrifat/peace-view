@@ -16,9 +16,10 @@ export class Root extends Component {
                 part: 'snippet',
                 maxResults: 5,
                 key: process.env.REACT_APP_API_KEY,
-                q: searchTerm
+                q: searchTerm,
             }
         })
+
 
         // console.log(response)
         // console.log(response.data.items)
@@ -30,6 +31,8 @@ export class Root extends Component {
     }
 
     render() {
+        const { videos, selectedVideo } = this.state
+        // console.log(this.state)
         return (
             <Grid container spacing={10} justifyContent='center'>
                 <Grid item xs={12}>
@@ -42,7 +45,7 @@ export class Root extends Component {
 
                         <Grid item xs={8}>
                             {/* TODO: Video */}
-                            <Video />
+                            <Video selectedVideo={selectedVideo} />
                         </Grid>
 
                         <Grid item xs={4}>
