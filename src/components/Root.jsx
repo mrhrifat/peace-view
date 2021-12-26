@@ -5,6 +5,11 @@ import youtube from '../api/youtube'
 
 export class Root extends Component {
 
+    state = {
+        videos: [],
+        selectedVideo: null
+    }
+
     handleSubmit = async (searchTerm) => {
         const response = await youtube.get('search', {
             params: {
@@ -14,7 +19,14 @@ export class Root extends Component {
                 q: searchTerm
             }
         })
-        console.log(response)
+
+        // console.log(response)
+        // console.log(response.data.items)
+
+        this.setState({
+            videos: response.data.items,
+            selectedVideo: response.data.items[0]
+        })
     }
 
     render() {
