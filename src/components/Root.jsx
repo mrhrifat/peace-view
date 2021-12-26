@@ -30,9 +30,16 @@ export class Root extends Component {
         })
     }
 
+    onVideoSelect = video => {
+        this.setState({
+            selectedVideo: video
+        })
+    }
+
     render() {
         const { videos, selectedVideo } = this.state
         // console.log(this.state)
+        // console.log(videos)
         return (
             <Grid container spacing={10} justifyContent='center'>
                 <Grid item xs={12}>
@@ -50,7 +57,7 @@ export class Root extends Component {
 
                         <Grid item xs={4}>
                             {/* TODO: List */}
-                            <List videos={videos} />
+                            <List videos={videos} onVideoSelect={this.onVideoSelect} />
                         </Grid>
                     </Grid>
                 </Grid>
