@@ -50,7 +50,7 @@ export class Root extends Component {
 
                         <Grid item xs={4}>
                             {/* TODO: List */}
-                            <List />
+                            <List videos={videos} />
                         </Grid>
                     </Grid>
                 </Grid>
